@@ -15,6 +15,8 @@ class CalcUi(QtWidgets.QMainWindow):
 def mainApplication():
     app = QtWidgets.QApplication(sys.argv)
     window = CalcUi()
-    app._exec_()
+    app.exec_()
     app.quit() # quit when all windows are closed
     sys.exit(app.exec()) # execute the application event loop
+
+mainApplication()
