@@ -11,9 +11,13 @@ class CalcUi(QtWidgets.QMainWindow):
         self.current=""
         self.display =""
         self.addition.clicked.connect(lambda: self.opButton("+"))
+        self.addition.clicked.connect(self.OutputLblClear)
         self.subtract.clicked.connect(lambda: self.opButton("-"))
+        self.subtract.clicked.connect(self.OutputLblClear)
         self.multiply.clicked.connect(lambda: self.opButton("*"))
+        self.multiply.clicked.connect(self.OutputLblClear)
         self.divide.clicked.connect(lambda: self.opButton("/"))
+        self.divide.clicked.connect(self.OutputLblClear)
         self.decimal.clicked.connect(lambda: self.opButton("."))
         self.equals.clicked.connect(self.equalsMethod)
         
@@ -61,7 +65,10 @@ class CalcUi(QtWidgets.QMainWindow):
         self.currentCalc.setText(self.display)
         self.current = ""
 
-
+    def OutputLblClear(self):
+        '''clears the output label when an operator is called'''
+        self.current = ''
+        self.calcScreen.setText('')
 
 def mainApplication():
     app = QtWidgets.QApplication(sys.argv)
